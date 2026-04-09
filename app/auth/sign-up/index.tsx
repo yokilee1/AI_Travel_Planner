@@ -38,6 +38,7 @@ export default function SignUp() {
         // Signed in
         const user = userCredential.user;
         console.log("User created successfully:", user);
+        router.replace("/mytrip");
         // ...
       })
       .catch((error) => {
