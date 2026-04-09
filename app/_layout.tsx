@@ -10,7 +10,7 @@ export default function RootLayout() {
     "Kalam-Light": require("@/assets/fonts/Kalam-Light.ttf"),
     Kalam: require("@/assets/fonts/Kalam-Regular.ttf"),
   });
-  const [tripData, setTripData] = useState([]);
+  const [tripData, setTripData] = useState({});
   return (
     <CreateTripContext.Provider value={{ tripData, setTripData }}>
       <Stack

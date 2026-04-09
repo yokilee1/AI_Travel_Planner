@@ -1,6 +1,6 @@
 import { Colors } from "@/constants/theme";
 import { CreateTripContext } from "@/context/CreateTripContext";
-import { useNavigation } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 import React, { useContext, useEffect } from "react";
 import { View } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
@@ -8,11 +8,12 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 export default function SearchPlace() {
   const navigation = useNavigation();
   const { tripData, setTripData } = useContext(CreateTripContext);
+  const router = useRouter();
   useEffect(() => {
     navigation.setOptions({
       headerShown: true,
       headerTransparent: true,
-      headerTitle: "Search",
+      headerTitle: "搜索地点",
     });
   }, []);
 
@@ -45,6 +46,7 @@ export default function SearchPlace() {
               url: details?.url,
             },
           });
+          router.push("/create-trip/select-traveler");
         }}
         query={{
           key: process.env.EXPO_PUBLIC_GOOGLE_MAP_KEY,
